@@ -31,7 +31,7 @@ class ThreadCam(Thread):
             #Obtém o frame da camera
             ret, frame = self.cap.read()
             #Redimensiona a imagem
-            frame = cv2.resize(frame, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
+            frame = cv2.resize(frame, None, fx=1.0, fy=1.0, interpolation=cv2.INTER_AREA)
             #Copia o frame para o frame global
             semaforo_g.acquire()
             frame_g = frame
@@ -60,7 +60,7 @@ class ThreadCamServer(Thread):
 
         #Fecha a conexao
         conn.close()
-        print('== Cliente desconectado ==')
+        # print('== Cliente desconectado ==')
 
 
 
@@ -80,11 +80,11 @@ Camera.start()
 
 #Servidor fica aguardando conexões
 while True:
-    print(f'*** Servidor aguardando conexões na porta {port} ***')
+    # print(f'*** Servidor aguardando conexões na porta {port} ***')
     conn, addr = serv.accept()
 
     #Ao receber uma conexão, cria uma thread para enviar dados ao cliente
-    print(f'== Conexao recebida de {addr} ==')
+    # print(f'== Conexao recebida de {addr} ==')
     ThreadCamServer(addr, conn).start() 
  
     
