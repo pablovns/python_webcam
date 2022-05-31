@@ -5,7 +5,7 @@ import pickle
 
 #porta e endereço do servidor
 porta = 8084
-dest = 'localhost'
+dest = '192.168.246.39'
 while True:
     #objeto socket
     cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

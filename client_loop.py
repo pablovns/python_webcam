@@ -8,7 +8,7 @@ import cv2
 PORT = 8084
 
 #Endereço do servidor
-dest = '192.168.246.66'
+dest = '192.168.246.51'
 
 
 #loop para conectar e obter os frames
